@@ -26,9 +26,10 @@ if (isset($_POST['cari'])) {
 <body style="text-align: center;">
   
   <div class="container container-fluid" style="text-align: center;">
-    <h3>Daftar Buku</h3>
+    <h1>Daftar Buku Pribadi</h1>
 
-    <button class="link-dark btn btn-sm" type="submit" name="cari" style=" background-color: #7986cb; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"><a href="tambah.php" style="text-decoration:none; color: white;">Tambah Data Buku</a></button>
+    <button class="link-dark btn btn-sm" type="submit" name="cari" style=" background-color: #7986cb; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+    <a href="tambah.php" style="text-decoration:none; color: white;">Tambah Data Buku</a></button>
     
     <br><br>
 
