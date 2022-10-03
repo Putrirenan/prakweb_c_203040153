@@ -35,7 +35,7 @@ class CetakInfoProduk
 
 // method adalah function yang ada didalam class
 
-$produk1 = new Produk("Naruto", "Masasi Kishimoto", "Shonen Jump", 30000);
+$produk1 = new Produk("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000);
 $produk2 = new Produk("Uncharted", "Neil Drukmann", "Sony Computer", 250000);
 
 
