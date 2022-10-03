@@ -5,36 +5,29 @@ class Produk
   public $judul,
     $penulis,
     $penerbit,
-    $harga,
-    $jmlHalaman,
-    $waktuMain;
+    $harga;
 
   public function __construct(
     $judul = "judul",
     $penulis = "penulis",
     $penerbit = "penerbit",
-    $harga  = 0,
-    $jmlHalaman = 0,
-    $waktuMain = 0
+    $harga  = 0
   )                                             // Constructor merupakan sebuah method yang spesial atau method yang khusus yg ada dalam sebuah kelas
   {                                             // Karna constructor adalah method yang otomatis dijalankan ketika sebuay kelas di instansiasi
     $this->judul = $judul;
     $this->penulis = $penulis;
     $this->penerbit = $penerbit;
     $this->harga = $harga;
-    $this->jmlHalaman = $jmlHalaman;
-    $this->waktuMain = $waktuMain;
   }
 
   public function getLabel()
   {
     return "$this->penulis, $this->penerbit";   // fungsi dari $this-> untuk mengambil isi dari property yang ada didalam kelas yang bersangkutan ketika dibuat instancenya
   }
-
   public function getInfoLengkap()
   {
     // Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp.30000) - 100 Halaman.
-    $str = "{{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+    $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
 
     return $str;
   }
@@ -42,23 +35,40 @@ class Produk
 
 class Komik extends Produk
 {
+  public $jmlHalaman;
+
+  public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga  = 0,  $jmlHalaman = 0)
+  {
+
+    parent::__construct($judul, $penulis, $penerbit, $harga);
+
+    $this->jmlHalaman = $jmlHalaman;
+  }
+
+
   public function getInfoProduk()
   {
-    $str = "Komik : {$this->judul} |  {$this->getLabel()} (Rp. {$this->harga}) - {$this->jmlHalaman} Halaman.";
+    $str = "Komik : " . parent::getInfoLengkap() . "- {$this->jmlHalaman} Halaman.";
     return $str;
   }
 }
-
 
 class Game extends Produk
 {
+  public $waktuMain;
+
+  public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga  = 0,  $waktuMain = 0)
+  {
+    parent::__construct($judul, $penulis, $penerbit, $harga);
+    $this->waktuMain = $waktuMain;
+  }
+
   public function getInfoProduk()
   {
-    $str = "Game : {$this->judul} |  {$this->getLabel()} (Rp. {$this->harga}) - {$this->waktuMain} Jam.";
+    $str = "Game : " . parent::getInfoLengkap() . "- {$this->waktuMain} Jam.";
     return $str;
   }
 }
-
 
 class CetakInfoProduk
 {
